@@ -6,7 +6,7 @@ public class Euler4 {
         int max = (int)Math.pow(10,digits);
         int currProduct;
         int currPalindrome = 0;
-        for(int i = max / 10 ; i < max; i++) {
+        for(int i = max - 1; i >= max/10; i--) {
             // only check j >= i to avoid looking at the same numbers twice
             for(int j = max-1; j >= i; j--) {
                 currProduct = i * j;
