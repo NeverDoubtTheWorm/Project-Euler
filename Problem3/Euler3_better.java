@@ -7,7 +7,7 @@ public class Euler3 {
         long testFactor = 2;
         long sqrtChecker = testFactor * testFactor;
         while(  (sqrtChecker <= remainingValue) && 
-                ( (remainingValue & 1) == 0) ) {
+              ((remainingValue & 1) == 0) ) {
             // remove all twos from the factorization so we can 
             // speed up the rest the check
             remainingValue /= testFactor;
@@ -16,7 +16,8 @@ public class Euler3 {
         testFactor++;
         sqrtChecker = testFactor * testFactor;
         while( sqrtChecker <= remainingValue) {
-            while( (remainingValue % testFactor) == 0) {
+            while(  (sqrtChecker <= remainingValue) && 
+                   ((remainingValue % testFactor) == 0 ) {
                 // testFactor is a factor of remainingValue
                 remainingValue /= testFactor;
                 // remove all instances of this factor 
