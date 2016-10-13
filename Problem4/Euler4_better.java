@@ -6,9 +6,28 @@ public class Euler4 {
         int max = (int)Math.pow(10,digits);
         int currProduct;
         int currPalindrome = 0;
+        int j;
+        int decJ; // variable to hold the decrementer for j
         for(int i = max - 1; i >= max/10; i--) {
+            // There is a proof that states that all even-digit 
+            // palindromic numbers are divisible by 11
+            // our solution space is guaranteed to hold palindromes 
+            // of length 2*digit - 1 to 2*digit
+            // Since we can expect our largest palindrome to be 2*digit
+            // in length we can use this to trim our solution space;
+
+            if( i % 11 == 0 ) {
+                // i is divisible by 11
+                j = max - 1;
+                decJ = 1;
+            } else {
+                // j must be divisible by 11
+                j = (max - 1)/11 * 11;
+                decJ = 11;
+            }
+
             // only check j >= i to avoid looking at the same numbers twice
-            for(int j = max-1; j >= i; j--) {
+            while(j >= i) {
                 currProduct = i * j;
                 if( currProduct < currPalindrome ) {
                     // future values for j will be too small as well
@@ -17,6 +36,7 @@ public class Euler4 {
                 if( isPalindrome(currProduct) ) {
                     currPalindrome = currProduct;
                 }
+                j -= decJ;
             }
         }
         return currPalindrome;
