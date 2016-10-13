@@ -9,11 +9,18 @@ public class Euler2 {
         int tempFib;
         while( currFib < below) {
             sum += currFib;
-            do {  // find next even fib number 
+            // Every third Fib number is even
                 tempFib = currFib;
                 currFib += lastFib;
                 lastFib = tempFib;
-            }while ( (currFib & 1) != 0) // check if currFib is even
+
+                tempFib = currFib;
+                currFib += lastFib;
+                lastFib = tempFib;
+
+                tempFib = currFib;
+                currFib += lastFib;
+                lastFib = tempFib;
         }
         
         return sum;
