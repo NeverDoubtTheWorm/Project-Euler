@@ -6,16 +6,27 @@ public class Euler3 {
         long remainingValue = value;
         long testFactor = 2;
         long sqrtChecker = testFactor * testFactor;
-        while( sqrtChecker <= remainingValue) {
+        while(  (sqrtChecker <= remainingValue) && 
+                ( (remainingValue & 1) == 0) ) {
+            // remove all twos from the factorization so we can 
+            // speed up the rest the check
+            remainingValue /= testFactor;
+        }
 
+        testFactor++;
+        sqrtChecker = testFactor * testFactor;
+        while( sqrtChecker <= remainingValue) {
             if( (remainingValue % testFactor) == 0) {
                 // testFactor is a factor of remainingValue
                 remainingValue /= testFactor;
                 // reset testFactor for this value in case it 
                 // appears multiple times in the factorization
-                testFactor--;
+                --testFactor;
+                  testFactor--;
             }
-            testFactor++;
+                // incrementing by two to ignore even numbers
+            ++testFactor;
+              testFactor++;
             sqrtChecker = testFactor * testFactor;
         }
         // remainingValue should hold the larges Prime Factor 
