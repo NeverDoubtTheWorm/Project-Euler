@@ -10,16 +10,14 @@ public class Euler2 {
         while( currFib < below) {
             sum += currFib;
             // Every third Fib number is even
-                tempFib = currFib;
-                currFib += lastFib;
-                lastFib = tempFib;
 
-                tempFib = currFib;
-                currFib += lastFib;
-                lastFib = tempFib;
-
-                tempFib = currFib;
-                currFib += lastFib;
+            // Fib(n+3) = Fib(n+2) + Fib(n+1);
+            // Fib(n+2) = Fib(n+1) + Fib(n)
+            // Fib(n+1) = Fib(n) + Fib(n-1)
+            // +> Fib(n+2) = 2 * Fib(n) + Fib(n-1)
+            // => Fib(n+3) = Fib(n+2) + Fib(n) + Fib(n-1)
+                tempFib = 2 * currFib + lastFib;  // tempFib = Fib(n+2)
+                currFib = tempFib + currFib + lastFib;
                 lastFib = tempFib;
         }
         
