@@ -16,13 +16,11 @@ public class Euler3 {
         testFactor++;
         sqrtChecker = testFactor * testFactor;
         while( sqrtChecker <= remainingValue) {
-            if( (remainingValue % testFactor) == 0) {
+            while( (remainingValue % testFactor) == 0) {
                 // testFactor is a factor of remainingValue
                 remainingValue /= testFactor;
-                // reset testFactor for this value in case it 
-                // appears multiple times in the factorization
-                --testFactor;
-                  testFactor--;
+                // remove all instances of this factor 
+                // from remainingValue
             }
                 // incrementing by two to ignore even numbers
             ++testFactor;
