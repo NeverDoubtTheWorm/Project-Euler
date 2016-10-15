@@ -1,3 +1,5 @@
+import java.util.HashSet;
+import java.util.Iterator;
 public class Euler7 {
     public static int getNthPrime(int n){
         if(n < 1) {
