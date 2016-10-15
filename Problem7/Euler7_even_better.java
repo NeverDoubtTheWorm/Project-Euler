@@ -15,7 +15,7 @@ public class Euler7 {
         primeSet.add(2);
         primeSet.add(3);
         int testValue;
-        //create a set of the first n-1 primes
+        // create a set of primes to check if our next value is prime
         for( int i = 3; primeSet.size() < n; i++) {
             // all primes greater than 3 
             // can be written as 6k+1 or 6k-1
