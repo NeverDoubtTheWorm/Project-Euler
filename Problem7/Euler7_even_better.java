@@ -54,9 +54,11 @@ public class Euler7 {
         }
 
         int prevPrimes;
+        int limit = (int)Math.sqrt(testValue) + 1;
+
         while( primeIterator.hasNext() ) {
             prevPrimes = primeIterator.next();
-            if( prevPrimes * prevPrimes > testValue) {
+            if( limit > testValue) {
                 //only check values up to the sqrt of the testValue
                 break;
             }
