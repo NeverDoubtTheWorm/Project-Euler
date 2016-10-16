@@ -144,13 +144,13 @@ public class Euler11 {
         for(int k = 1; k < (length-digits); k++) {
             adjQueue.flush();
             for(int i = 0; i < (length-k); i++ ){
-                // traverse all diaganoals above center
+                // traverse all anti-diaganoals above center
                 value = grid[length - 1 - i - k][i];
                 adjQueue.offer( value );
             }
             adjQueue.flush();
             for(int i = 0; i < (length-k); i++ ){
-                // traverse all diaganoals below center
+                // traverse all anti-diaganoals below center
                 value = grid[i][length - 1 - i - k];
                 adjQueue.offer( value );
             }
